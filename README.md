@@ -1,4 +1,4 @@
-###FontLabs
+#FontLabs
 
 # Wot is dis???
 For some reason there is no simple way to use custom fonts on StreamLabs alerts so we decided to make our own tool to do just that! 
