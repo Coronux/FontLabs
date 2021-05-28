@@ -1,0 +1,50 @@
+<html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>
+        body{
+            margin: 0;
+            font-family: 'Montserrat';
+
+        }       
+        .navbar{
+            width: 100%;
+            color: white;
+            padding: 16px 0px;
+            background: black;
+        }
+        .description{
+            width: 100%;
+            padding: 16px;
+            color: white;
+            background: black;
+          
+
+        }
+        .page-content{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">&nbsp;&nbsp;&nbsp;&nbsp;FontLabs</div>
+<div class="page-content">
+<div class="description">With this service you can quickly import custom fonts and use them on StreamLabs, <br> simply just drag and drop the font file you wanna use and the website will spit out the CSS code for Streamlabs</div>
+<input type="file" onchange="base64convert(this.files)">
+<br/>
+<div class="description">
+    <textarea id="base64"></textarea>
+</div>
+<script>
+function base64convert (files) {
+  console.clear()
+  const reader = new FileReader()
+  reader.onload = (e) => {
+    console.log(e.target.result)
+    document.getElementById("base64").value = e.target.result;    
+  }
+  reader.readAsDataURL(files[0])
+}
+</script>
+</body>
+</html>
