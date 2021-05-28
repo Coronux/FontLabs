@@ -5,6 +5,7 @@
         body{
             margin: 0;
             font-family: 'Montserrat';
+            background: #141414;
 
         }       
         .navbar{
@@ -15,36 +16,55 @@
         }
         .description{
             width: 100%;
-            padding: 16px;
+            padding: 16px 0px;
             color: white;
             background: black;
+
           
 
         }
         .page-content{
-            margin-top: 30px;
+            margin-top: 20px;
+        }
+        textarea{
+            width: 100%;
+            background: black;
+            color: white;
+            height: 150px;
+            border: none;
         }
     </style>
 </head>
 <body>
 <div class="navbar">&nbsp;&nbsp;&nbsp;&nbsp;FontLabs</div>
 <div class="page-content">
-<div class="description">With this service you can quickly import custom fonts and use them on StreamLabs, <br> simply just drag and drop the font file you wanna use and the website will spit out the CSS code for Streamlabs</div>
-<input type="file" onchange="base64convert(this.files)">
+<div class="description">
+    <p style="margin-left: 10px; margin-top: 0px; margin-bottom: 0px;">With this service you can quickly import custom fonts and use them on StreamLabs, <br> simply just drag and drop the font file you wanna use and the website will spit out the CSS code for Streamlabs</p></div>
+
 <br/>
 <div class="description">
-    <textarea id="base64"></textarea>
+    <p style="margin-left: 10px; margin-top: 0px; margin-bottom: 0px;">Results:</p><br>
+    <textarea id="code"></textarea>
 </div>
+<input type="file" style="background: black;" onchange="base64convert(this.files)"><button onclick="copy()">Copy to clipboard</button>
+
 <script>
 function base64convert (files) {
   console.clear()
   const reader = new FileReader()
   reader.onload = (e) => {
     console.log(e.target.result)
-    document.getElementById("base64").value = e.target.result;    
+    document.getElementById("code").value = "@font-face { \n font-family: 'FontLabs'; \n font-weight: 700; \n font-style: normal; \n src: url(" + e.target.result + ") format('woff'); \n } \n \n *{ \n font-family: FontLabs !important; \n }";    
   }
   reader.readAsDataURL(files[0])
 }
+
+function copy() {
+  let textarea = document.getElementById("code");
+  textarea.select();
+  document.execCommand("copy");
+}
+
 </script>
 </body>
 </html>
