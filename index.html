@@ -2,6 +2,7 @@
    <head>
       <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
       <meta name = "viewport" content = "width = device-width">
+      <meta charset="UTF-8">
       <style>
          body{
          margin: 0;
@@ -14,7 +15,7 @@
          padding: 16px 0px;
          background: black;
          }
-         .description{
+         .box{
          width: 100%;
          padding: 16px 0px;
          color: white;
@@ -43,24 +44,32 @@
          cursor: pointer;
          margin-left: 10px;
          }
+         .text-margin{
+            margin-left: 10px;
+         }
       </style>
    </head>
    <body>
-      <div class="navbar">&nbsp;&nbsp;&nbsp;&nbsp;FontLabs</div>
+      <div class="navbar">
+         <div class="text-margin">FontLabs</div>
+      </div>
       <div class="page-content">
-      <div class="description">
-         <p style="margin-left: 10px; margin-top: 0px; margin-bottom: 0px;">With this service you can quickly import custom fonts and use them on StreamLabs, <br> simply just select the font file you wanna use and the website will spit out the CSS code for Streamlabs</p>
+      <div class="box">
+         <p style="margin-left: 10px; margin-top: 0px; margin-bottom: 0px;">With this service you can quickly import custom fonts and use them on Streamlabs, <br> simply just select the font file you wanna use and the website will spit out the CSS code for Streamlabs</p>
       </div>
       <br/>
-      <div class="description">
+      <div class="box">
          <p style="margin-left: 10px; margin-top: 0px; margin-bottom: 0px;">Results:</p>
          <br>
          <textarea id="code" readonly></textarea>
       </div>
-      <div style="margin-top: 20px;" class="description">
+      <div style="margin-top: 20px;" class="box">
          <input type="file" onchange="base64convert(this.files)"  id="actual-btn" hidden/>
          <label for="actual-btn" class="btn">Select Font</label>
          <label onclick="copy()" class="btn">Copy to clipboard</label>
+      </div>
+      <div style="margin-top: 20px;" class="box">
+         <div class="text-margin">Coded with <span style="color: #FFC0CB;">❤</span> by Aria</div>
       </div>
    </body>
    <script>
